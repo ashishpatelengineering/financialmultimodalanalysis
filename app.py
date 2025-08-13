@@ -22,7 +22,7 @@ def get_media_type():
     st.sidebar.header("Select Financial Data Source Type", divider='orange')
     media_type = st.sidebar.radio(
         "Choose one:",
-        ("PDF (Financial Reports)", "Image (Charts/Statements)", "Video (Market Briefings)", "Audio (Earnings Calls)")
+        ("PDF", "Image", "Video", "Audio")
     )
     return media_type
 
