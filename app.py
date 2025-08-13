@@ -29,7 +29,7 @@ def get_media_type():
 
 def get_llm_settings():
     """Display sidebar options for configuring the LLM for financial insights."""
-    st.sidebar.header("LLM Configuration for Financial Analysis", divider='rainbow')
+    st.sidebar.header("Configuration for Financial Analysis", divider='rainbow')
     
     model = "gemini-1.5-flash"
 
