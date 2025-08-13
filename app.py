@@ -84,7 +84,7 @@ def main():
     media_type = get_media_type()
     model, temperature, top_p, max_tokens = get_llm_settings()
 
-    if media_type == "PDF (Financial Reports)":
+    if media_type == "PDF":
         uploaded_files = st.file_uploader("Upload annual reports, earnings releases, or market analysis PDFs", type="pdf", accept_multiple_files=True)
 
         if uploaded_files:
@@ -109,7 +109,7 @@ def main():
                 response = model.generate_content([question, text])
                 st.write(response.text)
 
-    elif media_type == "Image (Charts/Statements)":
+    elif media_type == "Image":
         image_file = st.file_uploader("Upload an image of a stock chart, financial statement, or market diagram", type=["jpg", "jpeg", "png"])
         if image_file:
             image = PIL.Image.open(image_file)
@@ -126,7 +126,7 @@ def main():
                 response = model.generate_content([image, prompt], request_options={"timeout": 600})
                 st.markdown(response.text)
 
-    elif media_type == "Video (Market Briefings)":
+    elif media_type == "Video":
         video_file = st.file_uploader("Upload a market briefing or financial news video", type=["mp4"])
         if video_file:
             with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmp_file:
@@ -152,7 +152,7 @@ def main():
                 genai.delete_file(video_file.name)
                 print(f"Deleted file {video_file.uri}")
 
-    elif media_type == "Audio (Earnings Calls)":
+    elif media_type == "Audio":
         audio_file = st.file_uploader("Upload an earnings call or investor meeting audio file", type=["mp3", "wav"])
         if audio_file:
             with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
