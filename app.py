@@ -14,7 +14,7 @@ load_dotenv()
 
 def setup_page():
     """Set up the Streamlit page with a financial analysis focus."""
-    st.header("AI-Powered Financial Document & Media Analysis", anchor=False, divider="blue")
+    st.header("AI-Powered Financial Analysis", anchor=False, divider="blue")
 
 
 def get_media_type():
